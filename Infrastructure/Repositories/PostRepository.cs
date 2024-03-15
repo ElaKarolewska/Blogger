@@ -13,7 +13,7 @@ namespace Infrastructure.Repositories
             new Post (2,"Treść 2","Treść 2"),
             new Post (3,"Treść 3","Treść 3"),
         };
-        public IEnumerable<Post> GettAll()
+        public IEnumerable<Post> GetAll()
         {
             return _posts;
         }
