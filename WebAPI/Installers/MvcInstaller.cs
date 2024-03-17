@@ -1,4 +1,5 @@
 ﻿using Application;
+using Asp.Versioning;
 using Domain.Interfaces;
 using Infrastructure;
 using Infrastructure.Repositories;
@@ -12,6 +13,13 @@ namespace WebAPI.Installers
             services.AddApplication();
             services.AddInfrastructure();
             services.AddControllers();
+
+            services.AddApiVersioning(x =>
+            {
+                x.DefaultApiVersion = new ApiVersion(1, 0);
+                x.AssumeDefaultVersionWhenUnspecified = true;
+                x.ReportApiVersions = true;
+            });
         }
     }
 }

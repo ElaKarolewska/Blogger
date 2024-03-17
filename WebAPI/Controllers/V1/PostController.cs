@@ -1,12 +1,14 @@
 ﻿using Application.Dto;
 using Application.Interfaces;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace WebAPI.Controllers
+namespace WebAPI.Controllers.V1
 {
     [Route("api/[controller]")]
+    [ApiVersion("1.0")]
     [ApiController]
     public class PostController : ControllerBase
     {
@@ -26,15 +28,15 @@ namespace WebAPI.Controllers
 
         [SwaggerOperation(Summary = "Retrieves a specific post by unique id")]
         [HttpGet("{id}")]
-        public IActionResult Get(int id) 
+        public IActionResult Get(int id)
         {
-           var post = _postService.GetPostById(id);
+            var post = _postService.GetPostById(id);
 
             if (post == null)
             {
                 return NotFound();
             }
-           
+
             return Ok(post);
         }
 
@@ -56,9 +58,9 @@ namespace WebAPI.Controllers
 
         [SwaggerOperation(Summary = "Delete a specific post")]
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id) 
+        public IActionResult Delete(int id)
         {
-           _postService.DeletePost(id);
+            _postService.DeletePost(id);
             return NoContent();
         }
     }
