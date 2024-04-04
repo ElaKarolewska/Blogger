@@ -1,7 +1,6 @@
 ﻿using Application.Dto;
 using Application.Interfaces;
 using Asp.Versioning;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -11,10 +10,10 @@ namespace WebAPI.Controllers.V2
     [ApiVersion("2.0")]
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : ControllerBase
+    public class PostsController : ControllerBase
     {
         private readonly IPostService _postService;
-        public PostController(IPostService postService)
+        public PostsController(IPostService postService)
         {
             _postService = postService;
         }
@@ -28,7 +27,7 @@ namespace WebAPI.Controllers.V2
                 new 
                 { 
                    Posts = posts,
-                   Count = posts.Count(),
+                   Count = posts.Count()
                 });
         }
 
