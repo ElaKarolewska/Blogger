@@ -1,8 +1,8 @@
 ﻿using Application;
-using Asp.Versioning;
 using Domain.Interfaces;
 using Infrastructure;
 using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Installers
 {
@@ -19,7 +19,7 @@ namespace WebAPI.Installers
                 x.DefaultApiVersion = new ApiVersion(1, 0);
                 x.AssumeDefaultVersionWhenUnspecified = true;
                 x.ReportApiVersions = true;
-                x.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
+                //x.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
             });
         }
     }

@@ -1,8 +1,4 @@
-using Application.Interfaces;
-using Application.Mappings;
-using Application.Services;
-using Domain.Interfaces;
-using Infrastructure.Repositories;
+
 using WebAPI;
 
 

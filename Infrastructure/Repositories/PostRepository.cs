@@ -8,6 +8,8 @@ namespace Infrastructure.Repositories
 {
     public class PostRepository : IPostRepository
     {
+
+
         private readonly BloggerContext _context;
         public PostRepository(BloggerContext context)
         {
@@ -25,7 +27,6 @@ namespace Infrastructure.Repositories
 
         public Post Add(Post post)
         {
-            post.Created = DateTime.Now;
             _context.Posts.Add(post);
             _context.SaveChanges();
             return post;
@@ -33,7 +34,6 @@ namespace Infrastructure.Repositories
 
         public void Update(Post post)
         {
-            post.LastModified = DateTime.Now;
             _context.Posts.Update(post);
             _context.SaveChanges();
         }

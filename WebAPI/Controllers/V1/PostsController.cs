@@ -1,14 +1,13 @@
 ﻿using Application.Dto;
 using Application.Interfaces;
-using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace WebAPI.Controllers.V2
+namespace WebAPI.Controllers.V1
 {
-    [ApiExplorerSettings(IgnoreApi = true)]
-    [ApiVersion("2.0")]
     [Route("api/[controller]")]
+    //[Route("api/{v: apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     [ApiController]
     public class PostsController : ControllerBase
     {
@@ -23,12 +22,7 @@ namespace WebAPI.Controllers.V2
         public IActionResult Get()
         {
             var posts = _postService.GetAllPosts();
-            return Ok(
-                new 
-                { 
-                   Posts = posts,
-                   Count = posts.Count()
-                });
+            return Ok(posts);
         }
 
         [SwaggerOperation(Summary = "Retrieves a specific post by unique id")]
