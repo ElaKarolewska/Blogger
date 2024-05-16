@@ -1,15 +1,14 @@
-﻿
-using Application.Dto;
-using Domain.Entities;
+﻿using Application.Dto;
 
 namespace Application.Interfaces
 {
     public interface IPostService
     {
-        IEnumerable<PostDto> GetAllPosts();
-        PostDto GetPostById(int id);
-        PostDto AddNewPost(CreatePostDto newPost);
-        void UpdatePost(UpdatePostDto updatePost);
-        void DeletePost(int id);
+        Task <IEnumerable<PostDto>> GetAllPostsAsync(int pageNumber, int pageSize, string sortField, bool aescending);
+        Task<int> GetAllPostsCountAsync();
+        Task <PostDto> GetPostByIdAsync(int id);
+        Task <PostDto> AddNewPostAsync(CreatePostDto newPost);
+        Task UpdatePostAsync(UpdatePostDto updatePost);
+        Task DeletePostAsync(int id);
     }
 }
